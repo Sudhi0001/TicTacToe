@@ -21,7 +21,7 @@ public class TicTacToe {
 
         Scanner scan = new Scanner(System.in);
         while (true) {
-            // Player X's turn
+            
             System.out.println("Enter the position (1-9) for player X:");
             int playerPosition = scan.nextInt();
             placePiece(gameBoard, playerPosition, 'X');
@@ -33,12 +33,11 @@ public class TicTacToe {
                 break;
             }
 
-            // Player O's turn
             Random rand = new Random();
             int randomPosition;
             do {
-                randomPosition = rand.nextInt(9) + 1; // Random position between 1 and 9
-            } while (playerXPositions.contains(randomPosition) || playerOPositions.contains(randomPosition)); // Ensure the position is not already taken
+                randomPosition = rand.nextInt(9) + 1; 
+            } while (playerXPositions.contains(randomPosition) || playerOPositions.contains(randomPosition));
             
             placePiece(gameBoard, randomPosition, 'O');
             printGameBoard(gameBoard);
@@ -78,14 +77,14 @@ public class TicTacToe {
 
     public static String checkWinner() {
         List<List<Integer>> winningConditions = Arrays.asList(
-            Arrays.asList(1, 2, 3), // Top row
-            Arrays.asList(4, 5, 6), // Middle row
-            Arrays.asList(7, 8, 9), // Bottom row
-            Arrays.asList(1, 4, 7), // Left column
-            Arrays.asList(2, 5, 8), // Middle column
-            Arrays.asList(3, 6, 9), // Right column
-            Arrays.asList(1, 5, 9), // Diagonal
-            Arrays.asList(3, 5, 7)  // Diagonal
+            Arrays.asList(1, 2, 3), 
+            Arrays.asList(4, 5, 6), 
+            Arrays.asList(7, 8, 9), 
+            Arrays.asList(1, 4, 7), 
+            Arrays.asList(2, 5, 8), 
+            Arrays.asList(3, 6, 9), 
+            Arrays.asList(1, 5, 9), 
+            Arrays.asList(3, 5, 7) 
         );
 
         for (List<Integer> condition : winningConditions) {
@@ -100,6 +99,6 @@ public class TicTacToe {
             return "It's a draw!";
         }
 
-        return null; // Game is still ongoing
+        return null; 
     }
 }
